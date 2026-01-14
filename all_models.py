@@ -1,18 +1,3 @@
-"""
-All Models - Stock Price Prediction
-====================================
-Consolidated training script for all viable models (R² >= -2).
-
-Models included:
-1. Linear Regression (Best: R²=0.993)
-2. Ridge Regression (R²=0.993)
-3. Gradient Boosting (R²=0.429)
-4. GRU Deep Learning (R²=0.422)
-5. Random Forest (R²=0.371)
-6. XGBoost (R²=0.163)
-7. Random Forest (from train_models, R²=-1.01)
-8. GARCH-GRU (R²=-1.48)
-"""
 
 import pandas as pd
 import numpy as np
@@ -26,7 +11,6 @@ import time
 import warnings
 warnings.filterwarnings('ignore')
 
-# Optional TensorFlow for GRU
 try:
     import tensorflow as tf
     from tensorflow.keras.models import Sequential
@@ -37,8 +21,6 @@ try:
 except ImportError:
     print("⚠ TensorFlow not installed. GRU model will be skipped.")
     TF_AVAILABLE = False
-
-# Optional XGBoost
 try:
     from xgboost import XGBRegressor
     XGB_AVAILABLE = True
